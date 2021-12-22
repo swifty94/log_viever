@@ -1,6 +1,6 @@
 # log_viewer
 
-... Library for displaying (live/static) any application log in browser
+Library for displaying (live/static) any application log in browser
 ---
 
 Installation:
