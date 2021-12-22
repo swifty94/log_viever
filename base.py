@@ -8,9 +8,7 @@ class Configuration(object):
     """
     JSON configuration object\n
     Available properties:
-    - API_KEY - Telegram bot API key
-    - DAYS_SECONDS - Amount of time bot will be alive
-    - TIMEOUT - Timeout between each reminder from bot
+        - logPath - path to log
     """
     def __init__(self, confFile="configuration.json") -> object:
         super().__init__()

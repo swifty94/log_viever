@@ -7,6 +7,7 @@ Installation:
 ---
 - Download this repo
 - Navigate to the folder root
+- Run: python -m venv venv
 - Run: python setup.py install
 - Set the "logPath" in the configuration.json file
 
