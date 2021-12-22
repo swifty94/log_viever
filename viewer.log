@@ -1,0 +1,4 @@
+[22-12-2021-17-28] [INFO] [LogViever.__main__] [class root] -> <module>() -> ---------- Application start ---------- ]
+[22-12-2021-17-28] [INFO] [LogViever.wasyncore] [class waitress] -> log_info() -> Serving on http://0.0.0.0:8080 ]
+[22-12-2021-17-29] [INFO] [LogViever.server] [class server] -> run() -> ProcessRequest to main route ]
+[22-12-2021-17-29] [INFO] [LogViever.__main__] [class root] -> <module>() -> ---------- Application end ---------- ]
