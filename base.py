@@ -14,11 +14,8 @@ class Configuration(object):
     """
     def __init__(self, confFile="configuration.json") -> object:
         super().__init__()
-        self.logger = logging.getLogger(__class__.__name__)
         self.confFile = confFile
         self.logPath = self._get("logPath")
-        self.user = self._get("user")
-        self.password = self._get("password")
     
     def _get(self, key) -> str:
         """
@@ -29,8 +26,7 @@ class Configuration(object):
         try:
             with open(self.confFile) as f:
                 data = json.load(f)
-            val = data[key]
-            self.logger.info(f"ProcessedKey: {key}")       
+            val = data[key]    
             return val
         except FileNotFoundError as noF:
             _l = f"CriticalException {noF} -> AppExit!"
@@ -48,13 +44,14 @@ class LogContent(object):
         param pathToLog: str - full path to the log file you wish to track
         """
         super().__init__()
-        self.logger = logging.getLogger(__class__.__name__)
         self.pathToLog = pathToLog
-        self.logger.info(f'LogForProcessing: {self.pathToLog}')
 
-    def get_content(self):
+    def get_content(self) -> str:
+        """
+        param - None
+        return - self.pathToLog content as String
+        """
         try:
-            self.logger.info(f'ProcessingFileContent: {self.pathToLog}')
             with open(self.pathToLog, "r") as f:
                 return f.read()
         except Exception as e:

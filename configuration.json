@@ -1,7 +1,3 @@
 {
-    "logPath": "",
-
-    "user": "",
-
-    "password": ""
+    "logPath": "/path/to/log/file/to/check"
 }

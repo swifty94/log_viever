@@ -5,16 +5,13 @@
 
 Installation:
 ---
-    
+- Download this repo
+- Navigate to the folder root
+- Run: python setup.py install
+- Set the "logPath" in the configuration.json file
+
 
 Usage:
 ---    
-
-
-Examples:
----
-![](https://raw.githubusercontent.com/swifty94/RepoName/branch/folder/image.png)
-
-![](https://raw.githubusercontent.com/swifty94/RepoName/branch/folder/image.png)
-
-![](https://raw.githubusercontent.com/swifty94/RepoName/branch/folder/image.png)
+- Run: python .
+- Validate the log file and if all OK open http://127.0.0.1:8080 link

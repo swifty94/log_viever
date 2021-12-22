@@ -3,3 +3,4 @@ __pycache__
 viewer.log
 *dev*
 *test*
+*log*
