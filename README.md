@@ -22,4 +22,4 @@ Usage:
 Demo:
 ---
 
-![](https://raw.githubusercontent.com/swifty94/log_viever/master/demo/demo.gif)
+![](https://github.com/swifty94/log_viever/blob/master/demo/demo.gif)
