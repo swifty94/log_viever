@@ -1,0 +1,28 @@
+body {margin: 0;font-family: Arial, Helvetica, sans-serif;}
+
+.header {padding: 10px 16px;background: #555;color: #f1f1f1;}
+
+.content {padding: 16px;}
+
+.sticky {position: fixed;top: 0;width: 100%;}
+
+.sticky + .content {padding-top: 102px;}
+
+.btn-group button {
+    background-color: #95bdf2;
+    border: 1px solid rgb(149, 156, 255);
+    color: rgb(0, 0, 0);;                        
+    padding: 10px 24px;  
+    cursor: pointer;
+    float: left;
+    margin: 0 auto;}
+                         
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+}

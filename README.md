@@ -18,3 +18,8 @@ Usage:
 - Validate the log file and open the link you've configured
 - Stream may be closed on demand by click on "Stop" button.
 - Press "Restart" button to reconnect to data stream. 
+
+Demo:
+---
+
+![](https://raw.githubusercontent.com/swifty94/FTStats/master/demo/demo.gif)
