@@ -5,27 +5,60 @@
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">                
-                <style>
-                        body {font-family: "Lato", sans-serif}
+                <style>                        
+                        body {margin: 0;font-family: Arial, Helvetica, sans-serif;}
+
+                        .header {padding: 10px 16px;background: #555;color: #f1f1f1;}
+
+                        .content {padding: 16px;}
+
+                        .sticky {position: fixed;top: 0;width: 100%;}
+
+                        .sticky + .content {padding-top: 102px;}
+
+                        .btn-group button {
+                        background-color: #95bdf2;
+                        border: 1px solid rgb(149, 156, 255);
+                        color: rgb(0, 0, 0);;                        
+                        padding: 10px 24px;  
+                        cursor: pointer;
+                        float: left;
+                        margin: 0 auto;}
+                         
+                        .btn-group:after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                        }
+
+                        .btn-group button:not(:last-child) {
+                        border-right: none;
+                        }
                 </style>
-        </head>
-        <body>
-        <h3>Log output:</h3>
-        <button type="button" onclick="xhrStop(setIntervalId);">Stop running</button>
-        <br>
-        <button type="button" onClick="window.location.reload(true)">Restart</button>
-        <pre id="output"></pre>
+        </head>        
+        <body>                      
+                <div class="header" id="myHeader">                        
+                        <h1>Simple and light log.io for web-browser</h1>                        
+                        <div class="btn-group header">
+                                <button type="button" onclick="xhrStop(setIntervalId);alert('Done');">Stop running</button>
+                                <button type="button" onClick="window.location.reload(true)">Restart</button>                
+                        </div>                       
+                </div>                        
+                <div class="content">
+                        <pre id="output"></pre>
+                </div>   
         <script>
-                var output = document.getElementById('output');                
+                var output = document.getElementById('output');
+                var testel = document.getElementById('testel');             
                 var xhr = new XMLHttpRequest();
                 console.log("new XMLHttpRequest()");
                 xhr.open('GET', "{{ url_for('stream') }}");
                 xhr.send();
                 
                 var setIntervalId = setInterval(function() {                        
-                        output.textContent = xhr.responseText;
-                        console.log("responseTextLength: " + xhr.responseText.length);
-                }, 1000);
+                        output.textContent = "\n"+xhr.responseText+"\n";
+                        console.log("dataLen: " + xhr.responseText.length);
+                }, 900);
 
                 console.log("XMLHttpRequest ThreadID "+setIntervalId);
 
@@ -34,6 +67,23 @@
                         clearInterval(setIntervalId);
                         console.log("xhrStop -> XMLHttpRequest.Abort()");
                         console.log("xhrStop -> clearInterval("+setIntervalId+")");
+                }
+                
+                document.body.addEventListener('DOMSubtreeModified', function () {
+                        window.scrollTo(0, document.body.scrollHeight);                        
+                }, false);
+
+                window.onscroll = function() {stickyHeader()};
+
+                var header = document.getElementById("myHeader");
+                var sticky = header.offsetTop;
+
+                function stickyHeader() {
+                if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+                } else {
+                header.classList.remove("sticky");
+                }
                 }
         </script>
  </html>
