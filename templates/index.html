@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>LogViewer</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<style>
-body {font-family: "Lato", sans-serif}
-</style>
-<body>
-<!-- Page content -->
-<h3 style="margin-top: 10px; margin-bottom: 10px; text-align: center;">Log content: </h3>
-<pre style="width: 100%; border: 2px solid black;"> 
-        {{ text }} 
-</pre>
-<!-- End Page Content -->
-</body>
-<script>
-</script>
-</html>
+        <head>
+                <title>LogViewer</title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">                
+                <style>
+                        body {font-family: "Lato", sans-serif}
+                </style>
+        </head>
+        <body>
+        <h3>Log output:</h3>
+        <button type="button" onclick="xhrStop(setIntervalId);">Stop running</button>
+        <br>
+        <button type="button" onClick="window.location.reload(true)">Restart</button>
+        <pre id="output"></pre>
+        <script>
+                var output = document.getElementById('output');                
+                var xhr = new XMLHttpRequest();
+                console.log("new XMLHttpRequest()");
+                xhr.open('GET', "{{ url_for('stream') }}");
+                xhr.send();
+                
+                var setIntervalId = setInterval(function() {                        
+                        output.textContent = xhr.responseText;
+                        console.log("responseTextLength: " + xhr.responseText.length);
+                }, 1000);
+
+                console.log("XMLHttpRequest ThreadID "+setIntervalId);
+
+                function xhrStop(setIntervalId){
+                        xhr.abort();
+                        clearInterval(setIntervalId);
+                        console.log("xhrStop -> XMLHttpRequest.Abort()");
+                        console.log("xhrStop -> clearInterval("+setIntervalId+")");
+                }
+        </script>
+ </html>
