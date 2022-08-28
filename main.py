@@ -3,7 +3,7 @@ from base import Configuration, LogViewerException, logging
 from flask import Flask, render_template
 from time import sleep
 
-c = Configuration(confFile="configuration_dev.json")
+c = Configuration(confFile="configuration.json")
 server = Flask(__name__)
 logger = logging.getLogger(server.name)
 

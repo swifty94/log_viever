@@ -1,6 +1,7 @@
 import logging, json
 import logging.config
 from os import path
+from shutil import copyfile
 logging.config.fileConfig(path.join(path.dirname(path.abspath(__file__)), 'logging.ini'))
 
 class LogViewerException(Exception):
@@ -30,6 +31,7 @@ class Configuration(object):
         self.port = self._get("port")
         self.streamEndpoint = self._get("streamEndpoint")
         self.viewEndpoint = self._get("viewEndpoint")
+        copyfile(confFile, "static/")
     
     def _get(self, key) -> str:
         """
