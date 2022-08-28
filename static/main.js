@@ -36,8 +36,3 @@ function stickyHeader() {
         header.classList.remove("sticky");
     }
 }
-
-
-fetch('./configuration_dev.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));

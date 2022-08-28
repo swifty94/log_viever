@@ -1,7 +1,6 @@
 {
     "logPath": "/path/to/log/file/to/check",        
     "host": "127.0.0.1",
-    "port": 7575,
-    "streamEndpoint": "/stream",
+    "port": 7575,    
     "viewEndpoint": "/log"
 }
