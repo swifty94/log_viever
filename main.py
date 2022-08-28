@@ -12,7 +12,7 @@ def gui():
     logger.info("Request to GUI")
     return render_template('index.html')
 
-@server.route(c.streamEndpoint)
+@server.route('/stream')
 def stream():
     logger.info("XMLHttpRequest for data stream")
     def generate():
